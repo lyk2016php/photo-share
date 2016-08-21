@@ -1,7 +1,8 @@
 <?php
 require_once "init.php";
-
 redirectIfNotLoggedIn();
+
+$photos = $connection->query("SELECT * FROM medias ORDER BY id DESC")->fetchAll();
 
 //	fotoğraf paylaşım uygulaması
 //	ön tanımlı üyeliklerle girilebilecek
@@ -15,24 +16,26 @@ redirectIfNotLoggedIn();
 	<title>Fotoğraf Paylaşım Alanı</title>
 	<style type="text/css">
 		.photos>img{
-			height: 200px;
+			width: 19%;
 		}
 	</style>
 </head>
 <body>
 	<a href="logout.php">Çıkış Yap</a>
 	<hr>
+	<? if(!is_null($message)): ?>
+	<p><?=$message?></p>
+	<hr>
+	<? endif; ?>
 	<form action="upload.php" method="post" enctype="multipart/form-data">
 		<input type="file" name="photo"><button type="submit">Fotoğrafı Yükle</button>
 	</form>
 	<hr>
 	<h1>Yüklenen Fotoğraflar</h1>
 	<div class="photos">
-		<img src="photos/IMG_0989.JPG">
-		<img src="photos/IMG_0989.JPG">
-		<img src="photos/IMG_0989.JPG">
-		<img src="photos/IMG_0989.JPG">
-		<img src="photos/IMG_0989.JPG">
+		<? foreach($photos as $photo): ?>
+		<img src="photos/<?=$photo['path']?>">
+		<? endforeach; ?>
 	</div>
 </body>
 </html>

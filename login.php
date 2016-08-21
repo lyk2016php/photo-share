@@ -22,7 +22,11 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 
 	if($user){
 		$_SESSION['user_id'] = $user->id;
+		$_SESSION['message'] = "BAŞARILI: Sisteme giriş yaptınız.";
 		redirectIfLoggedIn();
+	}else{
+		$_SESSION['message'] = "!!!HATA: Sisteme giriş yapılamadı.";
+		redirectIfNotLoggedIn();
 	}
 
 	//	oturum açılırsa index.php'ye yönlendirelim
@@ -39,6 +43,10 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 	<title>Giriş Yap</title>
 </head>
 <body>
+	<? if(!is_null($message)): ?>
+	<p><?=$message?></p>
+	<hr>
+	<? endif; ?>
 	<form action="login.php" method="post">
 		<input type="text" name="email" placeholder="E-Posta Adresiniz">
 		<br>
