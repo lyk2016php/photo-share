@@ -1,5 +1,5 @@
 <?php
-require_once "init.php";
+require_once "include/init.php";
 redirectIfNotLoggedIn();
 
 //	formdan photo isimli alandan dosya geldi mi bakalım
