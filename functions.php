@@ -12,9 +12,8 @@ function redirectIfLoggedIn(){
 }
 
 // yüklenen dosya bir fotoğraf mı diye bakalım
-function isUploadedFileAnImage($uploadedFile, $approvedMimeTypes = ["image/png", "image/jpeg"]){
-	if( ! $size = getimagesize($uploadedFile['tmp_name'])) return false;
-	if( $size['mime'] !== $uploadedFile['type'] ) return false;
+function isUploadedFileAnImage($uploadedFileTmpName, $approvedMimeTypes = ["image/png", "image/jpeg"]){
+	if( ! $size = getimagesize($uploadedFileTmpName)) return false;
 	if( ! in_array($size['mime'], $approvedMimeTypes) ) return false;
 	return true;
 }

@@ -28,7 +28,7 @@ $photos = $connection->query("SELECT * FROM medias ORDER BY id DESC")->fetchAll(
 	<hr>
 	<? endif; ?>
 	<form action="upload.php" method="post" enctype="multipart/form-data">
-		<input type="file" name="photo"><button type="submit">Fotoğrafı Yükle</button>
+		<input type="file" name="photos[]" accept=".png, .jpg, .jpeg, image/png, image/jpeg" multiple><button type="submit">Fotoğrafları Yükle</button>
 	</form>
 	<hr>
 	<h1>Yüklenen Fotoğraflar</h1>
