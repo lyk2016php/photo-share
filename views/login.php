@@ -5,18 +5,22 @@
 	<title>Giriş Yap</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/login.css">
 </head>
 <body>
-	<? if(!is_null($message)): ?>
-	<p><?=$message?></p>
-	<hr>
-	<? endif; ?>
-	<form action="login.php" method="post">
-		<input type="email" name="email" placeholder="E-Posta Adresiniz">
-		<br>
-		<input type="password" name="password" placeholder="Parolanız">
-		<br>
-		<button type="submit">Giriş Yap</button>
-	</form>
+	<div class="container">
+		<? if(!is_null($message)): ?>
+			<p><?=$message?></p>
+			<hr>
+		<? endif; ?>
+		<form class="form-signin" action="login.php" method="post">
+			<h2 class="form-signin-heading">Lütfen Giriş Yapın</h2>
+			<label for="inputEmail" class="sr-only">E-Posta Adresiniz</label>
+			<input name="email" type="email" id="inputEmail" class="form-control" placeholder="E-Posta Adresiniz" required="" autofocus="">
+			<label for="inputPassword" class="sr-only">Parolanız</label>
+			<input name="password" type="password" id="inputPassword" class="form-control" placeholder="Parolanız" required="">
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Giriş Yap</button>
+		</form>
+	</div>
 </body>
 </html>

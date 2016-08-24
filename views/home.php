@@ -12,7 +12,7 @@
 		<div class="photos row">
 			<? foreach($photos as $photo): ?>
 			<div class="col-md-3">
-				<a href="photos/<?=$photo['path']?>" target="_blank">
+				<a class="lightbox" rel="group" href="photos/<?=$photo['path']?>">
 					<img src="photos/<?=$photo['path']?>" class="img-responsive img-thumbnail">
 				</a>
 			</div>
