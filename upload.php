@@ -23,6 +23,18 @@ if(isset($_FILES['photos'])){
 		//	eğer kendi dizinimize kaydetme başarılı olursa, yeni ismini ve bu ekleme işlemini yapan kullanıcının bilgilerini, eklenme tarihi ile birlikte veritabanına yazalım
 
 			if($isUploaded){
+			//	görselimiz yüklendikten sonra önizleme ve küçük resmin oluşturulmasını sağlayalım
+
+				// @TODO: bu imaj boyutlandırma kısmı hata verirse ne olacak? onu kontrol edelim
+				$image = new \Eventviva\ImageResize($destination);
+				$image
+				->crop(300, 300)
+				->save($uploadPath.'/thumbnails/'.$newName)
+
+				->resizeToBestFit(1200, 900)
+				->save($uploadPath.'/previews/'.$newName)
+				;
+
 			//	 ekleme sorgumuzu oluşturup parametrelerimizi gönderelim
 				$add = $connection->prepare("INSERT INTO medias (user_id, path, uploaded_at) VALUES (?, ?, ?)");
 				$isAdded = $add->execute([$_SESSION['user_id'], $newName, date("Y-m-d H:i:s")]);

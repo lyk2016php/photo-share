@@ -11,9 +11,9 @@
 	<div class="col-md-12">
 		<div class="photos row">
 			<? foreach($photos as $photo): ?>
-			<div class="col-md-3">
-				<a class="lightbox" rel="group" href="photos/<?=$photo['path']?>">
-					<img src="photos/<?=$photo['path']?>" class="img-responsive img-thumbnail">
+			<div class="col-md-2">
+				<a class="lightbox" rel="group" href="photos/previews/<?=$photo['path']?>">
+					<img src="photos/thumbnails/<?=$photo['path']?>" class="img-responsive img-thumbnail">
 				</a>
 			</div>
 		<? endforeach; ?>

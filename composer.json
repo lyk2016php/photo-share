@@ -1,0 +1,5 @@
+{
+    "require": {
+        "eventviva/php-image-resize": "1.5.*"
+    }
+}
