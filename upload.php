@@ -40,18 +40,18 @@ if(isset($_FILES['photos'])){
 				$isAdded = $add->execute([$_SESSION['user_id'], $newName, date("Y-m-d H:i:s")]);
 
 				if($isAdded){
-					$_SESSION['message'] = "BAŞARILI: Dosya yüklendi ve kaydedildi.";
+					$_SESSION['message'][] = "BAŞARILI: Dosya yüklendi ve kaydedildi.";
 				}else{
-					$_SESSION['message'] = "!!!HATA: Dosya yüklendi ancak veritabanına kaydedilemedi.";
+					$_SESSION['message'][] = "!!!HATA: Dosya yüklendi ancak veritabanına kaydedilemedi.";
 				}
 			}else{
-				$_SESSION['message'] = "!!!HATA: Dosya yüklenemedi.";
+				$_SESSION['message'][] = "!!!HATA: Dosya yüklenemedi.";
 			}
 		}else{
-			$_SESSION['message'] = "!!!HATA: Dosya bir fotoğraf olmak zorundadır.";
+			$_SESSION['message'][] = "!!!HATA: Dosya bir fotoğraf olmak zorundadır.";
 		}
 	}
 }else{
-	$_SESSION['message'] = "!!!HATA: upload.php sayfasına bir dosya göndermeniz gerekmektedir.";
+	$_SESSION['message'][] = "!!!HATA: upload.php sayfasına bir dosya göndermeniz gerekmektedir.";
 }
 header("Location: index.php");

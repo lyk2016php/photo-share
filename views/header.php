@@ -21,7 +21,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#"><i class="fa fa-camera-retro" aria-hidden="true" style="color:orange;"></i> Photo Share</a>
+					<a class="navbar-brand" href="index.php"><i class="fa fa-camera-retro" aria-hidden="true" style="color:orange;"></i> Photo Share</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
@@ -30,8 +30,4 @@
 				</div>
 			</div>
 		</nav>
-		<hr>
-		<? if(!is_null($message)): ?>
-		<p><?=$message?></p>
-		<hr>
-		<? endif; ?>
+		<? include "partials/alerts.php" ?>

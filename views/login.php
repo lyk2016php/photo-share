@@ -9,10 +9,7 @@
 </head>
 <body>
 	<div class="container">
-		<? if(!is_null($message)): ?>
-			<p><?=$message?></p>
-			<hr>
-		<? endif; ?>
+		<? include "partials/alerts.php" ?>
 		<form class="form-signin" action="login.php" method="post">
 			<h2 class="form-signin-heading">Lütfen Giriş Yapın</h2>
 			<label for="inputEmail" class="sr-only">E-Posta Adresiniz</label>

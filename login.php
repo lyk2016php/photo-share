@@ -22,10 +22,12 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 
 	if($user){
 		$_SESSION['user_id'] = $user->id;
-		$_SESSION['message'] = "BAŞARILI: Sisteme giriş yaptınız.";
+		$_SESSION['message'][] = "1BAŞARILI: Sisteme giriş yaptınız.";
+		$_SESSION['message'][] = "2BAŞARILI: Sisteme giriş yaptınız.";
+		$_SESSION['message'][] = "3BAŞARILI: Sisteme giriş yaptınız.";
 		redirectIfLoggedIn();
 	}else{
-		$_SESSION['message'] = "!!!HATA: Sisteme giriş yapılamadı.";
+		$_SESSION['message'][] = "!!!HATA: Sisteme giriş yapılamadı.";
 		redirectIfNotLoggedIn();
 	}
 
