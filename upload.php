@@ -15,6 +15,7 @@ if(isset($_FILES['photos'])){
 			$uploadPath = "photos";
 
 			$extension = pathinfo($_FILES['photos']['name'][$i], PATHINFO_EXTENSION);
+			$originName = $_FILES['photos']['name'][$i];
 			$newName = uniqid() . $i . "." . $extension;
 
 			$destination = $uploadPath . "/" . $newName;
@@ -40,18 +41,18 @@ if(isset($_FILES['photos'])){
 				$isAdded = $add->execute([$_SESSION['user_id'], $newName, date("Y-m-d H:i:s")]);
 
 				if($isAdded){
-					$_SESSION['message'][] = "BAŞARILI: Dosya yüklendi ve kaydedildi.";
+					Alert::add("BAŞARILI: ". $originName ." isimli dosya yüklendi ve kaydedildi.");
 				}else{
-					$_SESSION['message'][] = "!!!HATA: Dosya yüklendi ancak veritabanına kaydedilemedi.";
+					Alert::add("!!!HATA: ". $originName ." isimli dosya yüklendi ancak veritabanına kaydedilemedi.");
 				}
 			}else{
-				$_SESSION['message'][] = "!!!HATA: Dosya yüklenemedi.";
+				Alert::add("!!!HATA: ". $originName ." isimli dosya yüklenemedi.");
 			}
 		}else{
-			$_SESSION['message'][] = "!!!HATA: Dosya bir fotoğraf olmak zorundadır.";
+			Alert::add("!!!HATA: ". $originName ." isimli dosya bir fotoğraf olmak zorundadır.");
 		}
 	}
 }else{
-	$_SESSION['message'][] = "!!!HATA: upload.php sayfasına bir dosya göndermeniz gerekmektedir.";
+	Alert::add("!!!HATA: upload.php sayfasına bir dosya göndermeniz gerekmektedir.");
 }
 header("Location: index.php");
