@@ -12,9 +12,11 @@
 		<div class="photos row">
 			<? foreach($photos as $photo): ?>
 			<div class="col-md-2">
+			<div class="row">
 				<a class="lightbox" rel="group" href="photos/previews/<?=$photo['path']?>">
-					<img src="photos/thumbnails/<?=$photo['path']?>" class="img-responsive img-thumbnail">
+					<img src="photos/thumbnails/<?=$photo['path']?>" class="img-responsive">
 				</a>
+			</div>
 			</div>
 		<? endforeach; ?>
 	</div>

@@ -11,7 +11,9 @@
 				closeBtn		: false,
 				helpers		: {
 					title	: { type : 'inside' },
-					buttons	: {}
+					buttons	: {
+						position: "bottom"
+					}
 				}
 			});
 		});
