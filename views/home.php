@@ -7,7 +7,12 @@
 		<button type="submit" class="btn btn-primary">Fotoğrafları Yükle</button>
 	</form>
 	<hr>
-	<h1>Yüklenen Fotoğraflar</h1>
+	<div class="col-md-9">
+		<h1 style="margin-top:0">Yüklenen Fotoğraflar</h1>
+	</div>
+	<div class="col-md-3">
+		<a href="export.php" class="btn btn-primary btn-block">Tüm Fotoğrafları İndir</a>
+	</div>
 	<div class="col-md-12">
 		<div class="photos row">
 			<? foreach($photos as $photo): ?>
